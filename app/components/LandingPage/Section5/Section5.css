@@ -1,0 +1,65 @@
+.Section5 {
+  flex-direction: column;
+  margin-bottom: 40px;
+
+  align-items: flex-start;
+}
+.Section5 h2 {
+  margin-bottom: 30px;
+  padding-left: 50px;
+  width: 60%;
+}
+.Section5.specialStyles {
+  width: 110%;
+}
+.Section5 p {
+  padding-left: 50px;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 26px;
+  margin-top: 20px;
+  white-space: pre-wrap;
+}
+.Skill-wrapper {
+  width: 80%;
+  margin: auto;
+  height: 70%;
+}
+.Swiper-Skills {
+  min-height: 300px;
+}
+@media (max-width: 800px) {
+  .Section5 h2 {
+    width: 100%;
+  }
+  .Section5 p {
+    width: 100%;
+  }
+  .Skill-wrapper {
+    width: 90%;
+  }
+  .ViewTemplate .Section5 p {
+    padding-left: 0;
+    margin-top: 0;
+  }
+  .ViewTemplate .Section5 h2 {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+@media (max-width: 1000px) {
+  .Section7 {
+    flex-direction: column;
+  }
+  .Section7 .Left,
+  .Section7 .Right {
+    width: 100% !important;
+  }
+  .Section7 .Right .ContactForm {
+    max-height: unset;
+  }
+  .Section7 .Right .ContactForm input {
+    width: 100% !important;
+  }
+}

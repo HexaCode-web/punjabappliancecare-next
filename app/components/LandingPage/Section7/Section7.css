@@ -1,0 +1,39 @@
+.Section7 {
+  display: flex;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+.Section7 .Left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.Section7 .Left h2,
+.Section7 .Left p {
+  width: 100%;
+  color: var(--text);
+}
+.Section7 .Right {
+  width: 40%;
+  height: fit-content;
+}
+.Section7 .Right h2 {
+  font-size: 2rem !important;
+  text-align: center;
+}
+.Section7 .Right .ContactForm {
+  position: static;
+  overflow-y: hidden;
+}
+.Section7 .Right .ContactForm input {
+  width: 42%;
+}
+.Section7 .Right .ContactForm #Subject {
+  width: 100%;
+}

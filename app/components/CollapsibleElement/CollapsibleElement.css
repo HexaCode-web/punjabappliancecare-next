@@ -1,0 +1,60 @@
+/* Define animation styles */
+.collapse-enter {
+  opacity: 0;
+  max-height: 0;
+}
+.CollapseWrapper {
+  width: 100%;
+}
+
+.collapse-enter-active {
+  opacity: 1;
+  max-height: 1000px; /* Adjust this value based on your content */
+  transition: opacity 300ms ease-in-out, max-height 300ms ease-in-out;
+}
+
+.collapse-exit {
+  opacity: 1;
+  max-height: 1000px; /* Adjust this value based on your content */
+}
+.OpenCollapse {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 20px;
+}
+.OpenCollapse p {
+  cursor: pointer;
+  user-select: none;
+}
+
+.OpenCollapse.Opened .Indicator.Two {
+  transform: rotate(0deg);
+}
+.OpenCollapse .Indicator {
+  width: 12px;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+}
+.OpenCollapse .Indicator.Two {
+  transform: rotate(90deg);
+  transition: 0.2s all;
+}
+.collapse-exit-active {
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 300ms ease-in-out, max-height 300ms ease-in-out;
+}
+
+/* Style for collapsible content */
+.collapsible-content {
+  width: fit-content;
+  padding: 10px;
+  border: 1px solid var(--borders);
+  border-radius: 15px;
+  overflow: hidden;
+}

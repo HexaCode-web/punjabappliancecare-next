@@ -1,0 +1,42 @@
+.Section9Card {
+  display: grid;
+  grid-template-rows: 40% 20% 30% 10%;
+  width: 500px;
+  height: 700px;
+  padding: 15px;
+  border: 1px solid var(--borders);
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-left: 0;
+}
+.Section9Card img {
+  min-height: 250px;
+  border-radius: 10px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.Section9Card h3 {
+  margin: 20px 0;
+}
+.Section9Card .linkWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.Section9Card .linkWrapper .Button {
+  cursor: pointer;
+  background-color: var(--buttons);
+  border: none;
+  color: white;
+  width: fit-content;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s all;
+}

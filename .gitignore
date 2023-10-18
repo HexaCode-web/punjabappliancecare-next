@@ -1,0 +1,4 @@
+/.env.local
+/.netlify
+/.next
+/node_modules

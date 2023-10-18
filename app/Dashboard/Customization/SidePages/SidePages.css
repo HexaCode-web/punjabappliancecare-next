@@ -1,0 +1,128 @@
+.Template {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.Template .PriceAdding {
+  width: 60%;
+  margin: auto;
+}
+.Template .PriceAdding .Button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.Template .EditorWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  row-gap: 20px;
+}
+.Template .EditorWrapper .Editor-wrapper:nth-child(1),
+.Template .EditorWrapper .Editor-wrapper:nth-child(2) {
+  width: 45% !important;
+  margin: 0 10px !important;
+}
+.Template .Editor-wrapper {
+  border: 1px solid var(--borders);
+  padding: 15px;
+  margin: 20px 0 !important;
+  border-radius: 10px;
+}
+.Template .DataEntry {
+  border: 1px solid var(--borders);
+  border-radius: 15px;
+  padding: 15px;
+  width: 95%;
+  margin: 20px auto;
+}
+.PricingModal .modal-dialog {
+  overflow-y: auto;
+  margin: auto !important;
+  width: 35% !important;
+}
+.PricingModal .modal-content {
+  width: 100%;
+}
+.PricingModal .Pros-Adder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.PricingModal .Pros-Wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.PricingModal .Pros-Wrapper ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+.Template #Editor {
+  grid-area: Editor;
+  width: 90%;
+  margin: auto;
+}
+.Template #Editor .Preview {
+  margin: 20px 0;
+  border: 1px solid var(--borders);
+  border-radius: 15px;
+  padding: 15px;
+}
+.Template #Editor .ql-toolbar.ql-snow {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border: 1px solid var(--borders);
+}
+.Template #Editor .quill,
+.Template #Editor .ql-container {
+  border-radius: 15px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.SectionWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--borders);
+  border-radius: 15px;
+  margin: 10px auto;
+  width: 95%;
+  padding: 0;
+}
+
+.Template #Editor ul {
+  list-style: none !important;
+}
+.Template #Editor ul li {
+  background-image: url("../../../../public/mark-35780_640.png");
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding-left: 30px;
+}
+.Template .Projects {
+  width: 90%;
+}
+.Template .Projects .Categories {
+  width: 90%;
+}
+.Template .Projects-wrapper {
+  display: flex;
+  gap: 40px;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+}
