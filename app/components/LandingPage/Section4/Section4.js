@@ -15,6 +15,7 @@ const Section4 = (props) => {
   useEffect(() => {
     // Create a script element
     const script = document.createElement("script");
+    console.log(process.env.NEXT_PUBLIC_REACT_APP_GOOGLEMAP);
     script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_REACT_APP_GOOGLEMAP}&libraries=places&callback`;
 
     // Create a map container div
