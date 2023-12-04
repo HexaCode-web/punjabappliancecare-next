@@ -8,14 +8,10 @@ import dynamic from "next/dynamic";
 import Loading from "./loading";
 import "animate.css";
 import Aos from "aos";
-// import GETCOLLECTION from "@/lib/getCollection";
+import GETCOLLECTION from "@/lib/getCollection";
 
 export default function Home() {
   const MainPage = dynamic(() => import("./components/MainPage"), {
-    loading: () => <Loading loading={loading} />,
-    ssr: false,
-  });
-  const GETCOLLECTION = dynamic(() => import("@/lib/getCollection"), {
     loading: () => <Loading loading={loading} />,
     ssr: false,
   });
