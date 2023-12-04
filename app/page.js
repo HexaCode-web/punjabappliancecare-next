@@ -1,7 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import GETCOLLECTION from "@/lib/getCollection";
-import Aos from "aos";
+const DynamicGETCOLLECTION = dynamic(() => import("../lib/getCollection"), {
+  loading: () => <p>Loading...</p>,
+});
+
+const DynamicAos = dynamic(() => import("aos"), {
+  loading: () => <p>Loading...</p>,
+});
 import "aos/dist/aos.css";
 // import { ToastContainer } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
@@ -10,6 +15,8 @@ import Loading from "./loading";
 import "animate.css";
 
 export default function Home() {
+  const GETCOLLECTION = DynamicGETCOLLECTION;
+  const Aos = DynamicAos;
   // const MainPage = dynamic(() => import("./components/MainPage"), {
   //   loading: () => <Loading loading={loading} />,
   //   ssr: false,

@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./Header.css";
-import ContactPopUp from "../PopUps/ContactPopup/ContactPopup";
+import dynamic from "next/dynamic";
+const DynamicContactPopUp = dynamic(
+  () => import("../PopUps/ContactPopup/ContactPopup"),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 const Header2 = (props) => {
+  const ContactPopUp = DynamicContactPopUp;
+
   const [location, setLocation] = useState(null);
   useEffect(() => {
     if (typeof window !== "undefined") {
