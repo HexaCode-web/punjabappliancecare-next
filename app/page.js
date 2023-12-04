@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-const DynamicGETCOLLECTION = dynamic(() => import("../lib/getCollection"), {
+const DynamicGETCOLLECTION = dynamic(() => import("@/lib/getCollection"), {
   loading: () => <p>Loading...</p>,
 });
 

@@ -4,15 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const DynamicEmailTemplate = dynamic(() => import("../EmailTemplate"), {
   loading: () => <p>Loading...</p>,
 });
-const DynamicGETCOLLECTION = dynamic(() => import("../lib/getCollection"), {
+const DynamicGETCOLLECTION = dynamic(() => import("@/lib/getCollection"), {
   loading: () => <p>Loading...</p>,
 });
 
-const DynamicSENDMAIL = dynamic(() => import("../lib/sendEmail"), {
+const DynamicSENDMAIL = dynamic(() => import("@/lib/sendEmail"), {
   loading: () => <p>Loading...</p>,
 });
 
-const DynamicCreateToast = dynamic(() => import("../lib/createToast"), {
+const DynamicCreateToast = dynamic(() => import("@/lib/createToast"), {
   loading: () => <p>Loading...</p>,
 });
 const DynamicModal = dynamic(() => import("react-bootstrap/Modal"), {
