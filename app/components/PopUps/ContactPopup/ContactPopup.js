@@ -1,32 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./ContactPopup.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-const DynamicEmailTemplate = dynamic(() => import("../EmailTemplate"), {
-  loading: () => <p>Loading...</p>,
-});
-const DynamicGETCOLLECTION = dynamic(() => import("@/lib/getCollection"), {
-  loading: () => <p>Loading...</p>,
-});
 
-const DynamicSENDMAIL = dynamic(() => import("@/lib/sendEmail"), {
-  loading: () => <p>Loading...</p>,
-});
-
-const DynamicCreateToast = dynamic(() => import("@/lib/createToast"), {
-  loading: () => <p>Loading...</p>,
-});
-const DynamicModal = dynamic(() => import("react-bootstrap/Modal"), {
-  loading: () => <p>Loading...</p>,
-});
+import EmailTemplate from "../EmailTemplate";
+import GETCOLLECTION from "@/lib/getCollection";
+import SENDMAIL from "@/lib/sendEmail";
+import CreateToast from "@/lib/createToast";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 function ContactPopUp(props) {
-  const GETCOLLECTION = DynamicGETCOLLECTION;
-  const SENDMAIL = DynamicSENDMAIL;
-  const CreateToast = DynamicCreateToast;
-  const Modal = DynamicModal;
-  const EmailTemplate = DynamicEmailTemplate;
+  const Modal = dynamic(() => import("react-bootstrap/Modal"), {
+    loading: () => <p>Loading...</p>,
+  });
 
   const [email, setEmail] = useState("");
   const [formData, setFormData] = useState({
