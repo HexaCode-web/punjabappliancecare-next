@@ -1,14 +1,45 @@
 import React from "react";
-import Section1 from "./LandingPage/Section1/Section1";
-import Section2 from "./LandingPage/Section2/Section2";
-import Section3 from "./LandingPage/Section3/Section3";
-import Section4 from "./LandingPage/Section4/Section4";
-import Section5 from "./LandingPage/Section5/Section5";
-import Section6 from "./LandingPage/Section6/Section6";
-import Section7 from "./LandingPage/Section7/Section7";
-import Section8 from "./LandingPage/Section8/Section8";
-import Section9 from "./LandingPage/Section9/Section9";
+
+import Loading from "../loading";
+import dynamic from "next/dynamic";
 const MainPage = ({ width, FetchedData, Tabs, PageOrder, Email }) => {
+  const Section1 = dynamic(() => import("./LandingPage/Section1/Section1"), {
+    loading: () => <Loading />,
+    ssr: false,
+  });
+  const Section2 = dynamic(() => import("./LandingPage/Section2/Section2"), {
+    loading: () => <Loading />,
+    ssr: false,
+  });
+  const Section3 = dynamic(() => import("./LandingPage/Section3/Section3"), {
+    loading: () => <Loading />,
+    ssr: false,
+  });
+  const Section4 = dynamic(() => import("./LandingPage/Section4/Section4"), {
+    loading: () => <Loading />,
+    ssr: false,
+  });
+  const Section5 = dynamic(() => import("./LandingPage/Section5/Section5"), {
+    loading: () => <Loading />,
+    ssr: false,
+  });
+  const Section6 = dynamic(() => import("./LandingPage/Section6/Section6"), {
+    loading: () => <Loading />,
+    ssr: false,
+  });
+  const Section7 = dynamic(() => import("./LandingPage/Section7/Section7"), {
+    loading: () => <Loading />,
+    ssr: false,
+  });
+  const Section8 = dynamic(() => import("./LandingPage/Section8/Section8"), {
+    loading: () => <Loading />,
+    ssr: false,
+  });
+  const Section9 = dynamic(() => import("./LandingPage/Section9/Section9"), {
+    loading: () => <Loading />,
+    ssr: false,
+  });
+
   const sortedEntries = Object.entries(PageOrder).sort((a, b) => a[1] - b[1]);
   const componentMap = {
     Section1,
