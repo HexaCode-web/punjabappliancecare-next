@@ -6,7 +6,6 @@ import UPLOADPHOTO from "@/lib/uploadPhoto";
 import UPLOADVIDEO from "@/lib/uploadVideo";
 import DELETEPHOTO from "@/lib/deletePhoto";
 import "../DataEntry.css";
-import VideoPlayer from "../../../components/VideoPlayer/VideoPlayer";
 import Image from "next/image";
 const HeaderSettings = ({
   Data,
@@ -303,7 +302,10 @@ const HeaderSettings = ({
       )}
       {data.VideoBG && (
         <div style={{ width: "500px" }}>
-          <VideoPlayer videoUrl={data.VideoBG} />
+          <video width="500" height="300" controls>
+            <source src={data.VideoBG} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
 
           <button className="Button Danger" onClick={DeleteVideo}>
             Delete Video
