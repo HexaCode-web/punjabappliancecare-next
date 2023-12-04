@@ -1,8 +1,20 @@
 import React from "react";
 import "./Header.css";
-import ContactPopUp from "../PopUps/ContactPopup/ContactPopup";
-import ContactForm from "../PopUps/ContactForm";
+
+import Loading from "@/app/loading";
+import dynamic from "next/dynamic";
 const Header = (props) => {
+  const ContactForm = dynamic(() => import("../PopUps/ContactForm"), {
+    loading: () => <Loading />,
+    ssr: false,
+  });
+  const ContactPopUp = dynamic(
+    () => import("../PopUps/ContactPopup/ContactPopup"),
+    {
+      loading: () => <Loading />,
+      ssr: false,
+    }
+  );
   const severData = props.ServerData;
   const [showModal, setShowModal] = React.useState(false);
   const handleShowModal = () => setShowModal(true);
