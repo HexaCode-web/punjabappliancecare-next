@@ -1,6 +1,5 @@
 import React from "react";
 import "./Header.css";
-
 import Loading from "@/app/loading";
 import dynamic from "next/dynamic";
 const Header = (props) => {
