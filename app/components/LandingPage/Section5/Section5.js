@@ -1,18 +1,18 @@
 import React from "react";
 import "./Section5.css";
 import SkillCard from "../../Cards/SkillCard/SkillCard";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Pagination, Autoplay } from "swiper";
-import "swiper/css/pagination";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import { Pagination, Autoplay } from "swiper";
+// import "swiper/css/pagination";
 const Section5 = (props) => {
-  const renderData = props.ServerData.Slider.map((skill) => {
-    return (
-      <SwiperSlide key={skill.id}>
-        <SkillCard Data={skill} />
-      </SwiperSlide>
-    );
-  });
+  // const renderData = props.ServerData.Slider.map((skill) => {
+  //   return (
+  //     <SwiperSlide key={skill.id}>
+  //       <SkillCard Data={skill} />
+  //     </SwiperSlide>
+  //   );
+  // });
   return (
     <section
       className={`Section5 ${props.specialStyles ? "specialStyles" : ""}`}
@@ -34,7 +34,7 @@ const Section5 = (props) => {
         )
       )}
       <div className="Skill-wrapper">
-        <Swiper
+        {/* <Swiper
           freeMode={true}
           loop={true}
           slidesPerView={4}
@@ -61,7 +61,7 @@ const Section5 = (props) => {
           className="Swiper-Skills"
         >
           {renderData}
-        </Swiper>
+        </Swiper> */}
       </div>
     </section>
   );
