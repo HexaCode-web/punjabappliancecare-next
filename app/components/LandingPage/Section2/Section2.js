@@ -1,19 +1,19 @@
 import React from "react";
 import "./Section2.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Autoplay, Pagination } from "swiper";
-import "swiper/css/pagination";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import { Autoplay, Pagination } from "swiper";
+// import "swiper/css/pagination";
 import Image from "next/image";
 
 const Section2 = (props) => {
-  const RenderSlider = props.ServerData.imgList.map((img) => {
-    return (
-      <SwiperSlide key={img.id}>
-        <Image src={img.url} alt="company" width="200" height="100" />
-      </SwiperSlide>
-    );
-  });
+  // const RenderSlider = props.ServerData.imgList.map((img) => {
+  //   return (
+  //     <SwiperSlide key={img.id}>
+  //       <Image src={img.url} alt="company" width="200" height="100" />
+  //     </SwiperSlide>
+  //   );
+  // });
   return (
     <section className="Section2">
       {props.ServerData.imgList.length > 0 && (
@@ -28,7 +28,7 @@ const Section2 = (props) => {
             ></div>
           )}
           <div className="Swiper" data-aos="fade-up">
-            <Swiper
+            {/* <Swiper
               freeMode={true}
               loop={true}
               slidesPerView={3}
@@ -55,7 +55,7 @@ const Section2 = (props) => {
               className="mySwiper"
             >
               {RenderSlider}
-            </Swiper>
+            </Swiper> */}
           </div>
         </>
       )}
