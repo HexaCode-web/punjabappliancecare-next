@@ -28,14 +28,14 @@ const Page = ({ params }) => {
     loading: () => <Loading loading={loading} />,
     ssr: false,
   });
-  const Header = dynamic(() => import("../components/Header/Header"), {
-    loading: () => <Loading loading={loading} />,
-    ssr: false,
-  });
-  const Header2 = dynamic(() => import("../components/Header/Header2"), {
-    loading: () => <Loading loading={loading} />,
-    ssr: false,
-  });
+  // const Header = dynamic(() => import("../components/Header/Header"), {
+  //   loading: () => <Loading loading={loading} />,
+  //   ssr: false,
+  // });
+  // const Header2 = dynamic(() => import("../components/Header/Header2"), {
+  //   loading: () => <Loading loading={loading} />,
+  //   ssr: false,
+  // });
   const [loading, setLoading] = useState(true);
   const [TargetPage, setTargetPage] = useState(null);
   const [tabs, setTabs] = useState(null);
@@ -119,7 +119,7 @@ const Page = ({ params }) => {
         <Loading loading={loading} />
       ) : TargetPage ? (
         <>
-          {Template === "Template3" ? (
+          {/* {Template === "Template3" ? (
             <Header
               Email={email}
               Phone={phone}
@@ -134,7 +134,7 @@ const Page = ({ params }) => {
               Phone={callNumber}
               Template={TargetPage?.Template}
             />
-          )}
+          )} */}
           <Component
             Data={TargetPage}
             width={width}
