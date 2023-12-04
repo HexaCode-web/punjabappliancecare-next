@@ -9,10 +9,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Pagination, Autoplay } from "swiper";
 import "swiper/css/pagination";
-import Section6 from "@/app/components/LandingPage/Section6/Section6";
-import Section2 from "@/app/components/LandingPage/Section2/Section2";
-import Section4 from "@/app/components/LandingPage/Section4/Section4";
-import Section5 from "@/app/components/LandingPage/Section5/Section5";
+// import Section6 from "@/app/components/LandingPage/Section6/Section6";
+// import Section2 from "@/app/components/LandingPage/Section2/Section2";
+// import Section4 from "@/app/components/LandingPage/Section4/Section4";
+// import Section5 from "@/app/components/LandingPage/Section5/Section5";
 import ContactForm from "@/app/components/PopUps/ContactForm";
 import Image from "next/image";
 import { ToastContainer } from "react-toastify";
@@ -207,7 +207,7 @@ const Template2 = ({ Data }) => {
         </div>
       </div>
 
-      {sliderData && (
+      {/* {sliderData && (
         <Section5
           ServerData={sliderData}
           specialStyles={true}
@@ -224,7 +224,7 @@ const Template2 = ({ Data }) => {
         <Section2 ServerData={brands} />
       ) : (
         section7Data && <Section2 ServerData={section7Data} />
-      )}
+      )} */}
 
       <div className="FAQ">
         {Data.FAQ.length > 0 && (

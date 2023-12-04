@@ -1,14 +1,14 @@
 "use client";
 /* eslint-disable no-undef */
 import React from "react";
-import Section1 from "@/app/components/LandingPage/Section1/Section1";
-import Section2 from "@/app/components/LandingPage/Section2/Section2";
-import Section3 from "@/app/components/LandingPage/Section3/Section3";
-import Section5 from "@/app/components/LandingPage/Section5/Section5";
-import Section6 from "@/app/components/LandingPage/Section6/Section6";
-import Section7 from "@/app/components/LandingPage/Section7/Section7";
-import Section8 from "@/app/components/LandingPage/Section8/Section8";
-import Section9 from "@/app/components/LandingPage/Section9/Section9";
+// import Section1 from "@/app/components/LandingPage/Section1/Section1";
+// import Section2 from "@/app/components/LandingPage/Section2/Section2";
+// import Section3 from "@/app/components/LandingPage/Section3/Section3";
+// import Section5 from "@/app/components/LandingPage/Section5/Section5";
+// import Section6 from "@/app/components/LandingPage/Section6/Section6";
+// import Section7 from "@/app/components/LandingPage/Section7/Section7";
+// import Section8 from "@/app/components/LandingPage/Section8/Section8";
+// import Section9 from "@/app/components/LandingPage/Section9/Section9";
 import Map from "@/app/components/map";
 
 const Template3 = ({ Data, width, Tabs, PageOrder, Email }) => {
