@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import GETCOLLECTION from "@/lib/getCollection";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import dynamic from "next/dynamic";
 import Loading from "./loading";
 import "animate.css";
@@ -72,7 +72,7 @@ export default function Home() {
 
   return (
     <main>
-      <ToastContainer
+      {/* <ToastContainer
         position="bottom-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -83,7 +83,7 @@ export default function Home() {
         draggable
         pauseOnHover
         theme="colored"
-      />
+      /> */}
       <Loading loading={loading} />
 
       {loading ? (
