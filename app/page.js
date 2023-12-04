@@ -11,10 +11,10 @@ import Aos from "aos";
 import GETCOLLECTION from "@/lib/getCollection";
 
 export default function Home() {
-  // const MainPage = dynamic(() => import("./components/MainPage"), {
-  //   loading: () => <Loading loading={loading} />,
-  //   ssr: false,
-  // });
+  const MainPage = dynamic(() => import("./components/MainPage"), {
+    loading: () => <Loading loading={loading} />,
+    ssr: false,
+  });
   const Header = dynamic(() => import("./components/Header/Header"), {
     loading: () => <Loading loading={loading} />,
     ssr: false,
@@ -90,13 +90,13 @@ export default function Home() {
             screenWidth={width}
             ServerData={FetchedData[0].Header}
           />
-          {/* <MainPage
+          <MainPage
             width={width}
             FetchedData={FetchedData}
             Tabs={FetchedData[1]}
             PageOrder={PageOrder}
             Email={FetchedData[0].FooterData.Email}
-          /> */}
+          />
         </>
       )}
     </main>
