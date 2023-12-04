@@ -2,6 +2,10 @@ import React from "react";
 
 import Loading from "../loading";
 import dynamic from "next/dynamic";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Autoplay, Pagination } from "swiper";
+import "swiper/css/pagination";
 const MainPage = ({ width, FetchedData, Tabs, PageOrder, Email }) => {
   const Section1 = dynamic(() => import("./LandingPage/Section1/Section1"), {
     loading: () => <Loading />,
@@ -99,6 +103,10 @@ const MainPage = ({ width, FetchedData, Tabs, PageOrder, Email }) => {
               Email={Email}
               Tabs={Tabs}
               SpecialStyles={false}
+              Autoplay={Autoplay}
+              Pagination={Pagination}
+              SwiperSlide={SwiperSlide}
+              Swiper={Swiper}
             />
           );
         }

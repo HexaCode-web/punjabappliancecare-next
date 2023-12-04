@@ -1,24 +1,21 @@
 import React from "react";
 import "./Section9.css";
 import Section9Cards from "../../Cards/Section9Cards/Section9Cards";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/css";
-// import { Pagination, Autoplay } from "swiper";
-// import "swiper/css/pagination";
+
 const Section9 = (props) => {
   const serverData = props.ServerData;
-  // const renderCards = serverData?.Cards.map((card) => {
-  //   return (
-  //     <SwiperSlide key={card.id}>
-  //       <Section9Cards cardData={card} />
-  //     </SwiperSlide>
-  //   );
-  // });
+  const renderCards = serverData?.Cards.map((card) => {
+    return (
+      <props.SwiperSlide key={card.id}>
+        <Section9Cards cardData={card} />
+      </props.SwiperSlide>
+    );
+  });
   return (
     <div className="Section9">
       {serverData.Title && <h2>{serverData.Title}</h2>}
       <div className="Skill-wrapper">
-        {/* <Swiper
+        <props.Swiper
           freeMode={true}
           loop={true}
           slidesPerView={3}
@@ -41,11 +38,11 @@ const Section9 = (props) => {
               spaceBetween: 20,
             },
           }}
-          modules={[Pagination, Autoplay]}
+          modules={[props.Pagination, props.Autoplay]}
           className="Swiper-cards"
         >
           {renderCards}
-        </Swiper> */}
+        </props.Swiper>
       </div>
     </div>
   );
