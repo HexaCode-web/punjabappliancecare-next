@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-// import "aos/dist/aos.css";
-// import { ToastContainer } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import "aos/dist/aos.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import dynamic from "next/dynamic";
 import Loading from "./loading";
-// import "animate.css";
-// import Aos from "aos";
+import "animate.css";
+import Aos from "aos";
 import GETCOLLECTION from "@/lib/getCollection";
 
 export default function Home() {
@@ -60,13 +60,13 @@ export default function Home() {
       root.style.setProperty("--LinkLines", webData.Colors.LinkLines);
     }
   }, [webData]);
-  // useEffect(() => {
-  //   Aos.init({ duration: 500 });
-  // }, []);
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  }, []);
 
   return (
     <main>
-      {/* <ToastContainer
+      <ToastContainer
         position="bottom-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -77,7 +77,7 @@ export default function Home() {
         draggable
         pauseOnHover
         theme="colored"
-      /> */}
+      />
       <Loading loading={loading} />
 
       {loading ? (
