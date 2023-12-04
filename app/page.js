@@ -12,11 +12,11 @@ import "animate.css";
 export default function Home() {
   const MainPage = dynamic(() => import("./components/MainPage"), {
     loading: () => <Loading loading={loading} />,
-    ssr: true,
+    ssr: false,
   });
   const Header = dynamic(() => import("./components/Header/Header"), {
     loading: () => <Loading loading={loading} />,
-    ssr: true,
+    ssr: false,
   });
   const [webData, setWebData] = useState(null);
   const [width, setWidth] = useState(
