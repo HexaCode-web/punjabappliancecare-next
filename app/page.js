@@ -8,7 +8,6 @@ import dynamic from "next/dynamic";
 import Loading from "./loading";
 import "animate.css";
 import Aos from "aos";
-import axios from "axios";
 
 export default function Home() {
   const MainPage = dynamic(() => import("./components/MainPage"), {
@@ -42,10 +41,23 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const [mainPageData, sidePagesData, websiteData] = await Promise.all([
-        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`),
-        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`),
-        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`)
+          .then((response) => response.json())
+          .catch((error) => {
+            console.error("Error fetching MainPage data:", error);
+          }),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`)
+          .then((response) => response.json())
+          .catch((error) => {
+            console.error("Error fetching SidePages data:", error);
+          }),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`)
+          .then((response) => response.json())
+          .catch((error) => {
+            console.error("Error fetching Website data:", error);
+          }),
       ]);
+
       const formattedPageData = mainPageData.data[0];
       const formattedWebsiteData = websiteData.data[0];
 
