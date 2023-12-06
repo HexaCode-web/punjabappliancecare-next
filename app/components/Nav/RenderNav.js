@@ -102,7 +102,6 @@ const RenderNav = ({ Tabs }) => {
       const DropDowns = await fetch(
         `${process.env.NEXT_PUBLIC_END_POINT_URL}/DropDowns`
       ).then((res) => res.json());
-      console.log(DropDowns);
       setDropDowns(DropDowns);
     };
     fetchData();
@@ -113,13 +112,13 @@ const RenderNav = ({ Tabs }) => {
       return;
     }
     const TabsToRender = DropDown.Pages.reduce((acc, pageId) => {
-      const page = TabsAR.find((item) => item.id === pageId);
+      console.log("TabsAR", TabsAR, pageId);
+      const page = TabsAR.find((item) => item.id == pageId);
       if (page && page.PageURL) {
         acc.push(page);
       }
       return acc;
     }, []);
-
     return (
       <li key={DropDown.id} className="dropdown">
         <a style={{ cursor: "pointer" }}>
