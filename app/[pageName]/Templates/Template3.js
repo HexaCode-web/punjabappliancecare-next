@@ -10,7 +10,10 @@ import Section7 from "@/app/components/LandingPage/Section7/Section7";
 import Section8 from "@/app/components/LandingPage/Section8/Section8";
 import Section9 from "@/app/components/LandingPage/Section9/Section9";
 import Map from "@/app/components/map";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Pagination, Autoplay } from "swiper";
+import "swiper/css/pagination";
 const Template3 = ({ Data, width, Tabs, PageOrder, Email }) => {
   delete PageOrder["Section4"];
   const sortedEntries = Object.entries(PageOrder).sort((a, b) => a[1] - b[1]);
@@ -24,7 +27,7 @@ const Template3 = ({ Data, width, Tabs, PageOrder, Email }) => {
     Section8,
     Section9,
   };
-
+  sortedEntries.shift();
   return (
     <>
       <div className="SectionWrapper">
@@ -32,29 +35,28 @@ const Template3 = ({ Data, width, Tabs, PageOrder, Email }) => {
           let data;
           switch (key) {
             case "Section1":
-              data = Data.Section1;
+              data = Data.TemplateProperties.Section1;
               break;
             case "Section2":
-              data = Data.Section2;
+              data = Data.TemplateProperties.Section2;
               break;
             case "Section3":
-              data = Data.Section3;
+              data = Data.TemplateProperties.Section3;
               break;
-
             case "Section5":
-              data = Data.Section5;
+              data = Data.TemplateProperties.Section5;
               break;
             case "Section6":
-              data = Data.Section6;
+              data = Data.TemplateProperties.Section6;
               break;
             case "Section7":
-              data = Data.Section7;
+              data = Data.TemplateProperties.Section7;
               break;
             case "Section8":
-              data = Data.Section8;
+              data = Data.TemplateProperties.Section8;
               break;
             case "Section9":
-              data = Data.Section9;
+              data = Data.TemplateProperties.Section9;
               break;
             default:
               break;
@@ -70,13 +72,17 @@ const Template3 = ({ Data, width, Tabs, PageOrder, Email }) => {
                 Email={Email}
                 Tabs={Tabs}
                 SpecialStyles={false}
+                Autoplay={Autoplay}
+                Pagination={Pagination}
+                SwiperSlide={SwiperSlide}
+                Swiper={Swiper}
               />
             );
           }
         })}
       </div>
 
-      <Map address={Data.DesiredLocation} />
+      <Map address={Data.TemplateProperties.DesiredLocation} />
     </>
   );
 };

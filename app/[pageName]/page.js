@@ -2,14 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-import GETCOLLECTION from "@/lib/getCollection";
-
 import NotFound from "../not-found";
 import Loading from "../loading";
 import dynamic from "next/dynamic";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "animate.css";
+import axios from "axios";
 const Page = ({ params }) => {
   const PageURL = params.pageName;
   const Template1 = dynamic(() => import("./Templates/Template1"), {
@@ -39,7 +38,7 @@ const Page = ({ params }) => {
   const [loading, setLoading] = useState(true);
   const [TargetPage, setTargetPage] = useState(null);
   const [tabs, setTabs] = useState(null);
-  const [arPages, setarPages] = useState([]);
+  const [arPages, setARPages] = useState([]);
   const [PageOrder, setPageOrder] = useState(null);
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -69,11 +68,18 @@ const Page = ({ params }) => {
   }, []);
   useEffect(() => {
     const fetchPages = async () => {
-      const mainData = await GETCOLLECTION("customization");
-      setEmail(mainData[0].FooterData.Email);
-      setPhone(mainData[0].FooterData.Phone);
-      setPageOrder(mainData[0].PageOrder);
-      const webData = mainData[2];
+      const [mainPageData, sidePagesData, websiteData] = await Promise.all([
+        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`),
+        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`),
+        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`),
+      ]);
+      const formattedPageData = mainPageData.data[0];
+
+      const formattedWebsiteData = websiteData.data[0];
+      setEmail(formattedPageData.FooterData.Email);
+      setPhone(formattedPageData.FooterData.Phone);
+      setPageOrder(formattedPageData.PageOrder);
+      const webData = formattedWebsiteData;
       if (webData) {
         const root = document.documentElement;
         root.style.setProperty("--buttons", webData.Colors.ButtonColors);
@@ -83,7 +89,7 @@ const Page = ({ params }) => {
         root.style.setProperty("--HoverText", webData.Colors.HoverText);
         root.style.setProperty("--LinkLines", webData.Colors.LinkLines);
       }
-      const pages = mainData[1];
+      const pages = sidePagesData.data;
       setTabs(pages);
       let tempAR = [];
       for (const key in pages) {
@@ -92,7 +98,7 @@ const Page = ({ params }) => {
           tempAR.push(element);
           const filteredPages = tempAR.filter((page) => page.PageURL !== "");
 
-          setarPages(filteredPages);
+          setARPages(filteredPages);
         }
       }
     };
@@ -124,7 +130,7 @@ const Page = ({ params }) => {
               Email={email}
               Phone={phone}
               screenWidth={width}
-              ServerData={TargetPage.Header}
+              ServerData={TargetPage.TemplateProperties.Header}
             />
           ) : (
             <Header2

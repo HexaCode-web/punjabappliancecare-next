@@ -3,10 +3,7 @@
 import React, { useEffect, useState } from "react";
 import "./Section4.css";
 import Testimonial from "../../Cards/Testimonial/Testimonial";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Pagination, Autoplay } from "swiper";
-import "swiper/css/pagination";
+
 import { v4 as uuid } from "uuid";
 import Image from "next/image";
 import Link from "next/link";
@@ -59,9 +56,9 @@ const Section4 = (props) => {
 
   const RenderTestimonials = placeDetails?.reviews.map((review) => {
     return (
-      <SwiperSlide key={uuid()}>
+      <props.SwiperSlide key={uuid()}>
         <Testimonial Testimonial={review} />
-      </SwiperSlide>
+      </props.SwiperSlide>
     );
   });
 
@@ -139,7 +136,7 @@ const Section4 = (props) => {
         </Link>
       </div>
       <div className="Bottom" data-aos="fade">
-        <Swiper
+        <props.Swiper
           freeMode={true}
           loop={true}
           slidesPerView={1}
@@ -149,11 +146,11 @@ const Section4 = (props) => {
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
-          modules={[Pagination, Autoplay]}
+          modules={[props.Pagination, props.Autoplay]}
           className="Swiper-Testimonials"
         >
           {RenderTestimonials}
-        </Swiper>
+        </props.Swiper>
       </div>
     </section>
   );

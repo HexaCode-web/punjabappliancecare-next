@@ -1,36 +1,25 @@
-import GETDOC from "@/lib/getDoc";
+import axios from "axios";
 
 export const generateMetadata = async ({ params }) => {
   let arPages = [];
   const fetchPages = async () => {
-    const pages = await GETDOC("customization", "Sidepages");
-    for (const key in pages) {
-      if (Object.hasOwnProperty.call(pages, key)) {
-        const element = pages[key];
-        arPages.push(element);
-      }
-    }
+    const pages = await axios.get(
+      `${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`
+    );
+    arPages = pages.data;
   };
   await fetchPages();
+  const foundPage = arPages.find((page) => {
+    return page.PageURL === params.pageName;
+  });
+  const pageTitle = foundPage.metaTitle || "Not Found";
+  const pageDescription = foundPage.metaDescription || "Not Found";
 
-  const foundPage = arPages.find((page) => page.PageURL === params.pageName);
-  const isTemplate3 = foundPage?.Template === "Template3";
-  const pageTitle = foundPage
-    ? isTemplate3
-      ? foundPage.Header?.metaTitle || "Not Found"
-      : foundPage.metaTitle || "Not Found"
-    : "Not Found";
-
-  const pageDescription = foundPage
-    ? isTemplate3
-      ? foundPage.Header?.metaDescription || "Not Found"
-      : foundPage.metaDescription || "Not Found"
-    : "Not Found";
   const siteURL = "https://punjabappliancecare.ca/";
   return {
     title: pageTitle,
     alternates: {
-      canonical: `${siteURL}${foundPage.PageURL}`,
+      canonical: `${siteURL}${foundPage?.PageURL}`,
     },
     description: pageDescription,
     openGraph: {
@@ -55,13 +44,10 @@ export default function SidePagesLayout({ children }) {
 export async function generateStaticParams() {
   let arPages = [];
   const fetchPages = async () => {
-    const pages = await GETDOC("customization", "Sidepages");
-    for (const key in pages) {
-      if (Object.hasOwnProperty.call(pages, key)) {
-        const element = pages[key];
-        arPages.push(element);
-      }
-    }
+    const pages = await axios.get(
+      `${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`
+    );
+    arPages = pages.data;
   };
   await fetchPages();
   const filteredPages = arPages.filter((page) => page.PageURL !== "");
