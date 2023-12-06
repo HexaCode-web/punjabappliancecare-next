@@ -25,7 +25,6 @@ const Footer = () => {
     };
     fetchData();
   }, []);
-  console.log(tabs);
   const objectToArray = (obj) => {
     return Object.keys(obj).map((key) => ({
       key,

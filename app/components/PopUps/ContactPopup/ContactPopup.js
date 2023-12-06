@@ -28,7 +28,6 @@ function ContactPopUp(props) {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`
       ).then((res) => res.json());
-      console.log(res[0]);
       setEmail(res[0].Email);
       setData({
         Email: res[0].Email,

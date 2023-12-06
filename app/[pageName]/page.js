@@ -94,7 +94,7 @@ const Page = ({ params }) => {
         root.style.setProperty("--HoverText", webData.Colors.HoverText);
         root.style.setProperty("--LinkLines", webData.Colors.LinkLines);
       }
-      const pages = sidePagesData.data;
+      const pages = sidePagesData;
       setTabs(pages);
       let tempAR = [];
       for (const key in pages) {
@@ -112,7 +112,6 @@ const Page = ({ params }) => {
   useEffect(() => {
     if (arPages.length > 0) {
       const foundPage = arPages.find((page) => page.PageURL === PageURL);
-
       setTargetPage(foundPage);
       setLoading(false);
     }

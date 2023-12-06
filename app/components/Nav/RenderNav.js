@@ -112,7 +112,6 @@ const RenderNav = ({ Tabs }) => {
       return;
     }
     const TabsToRender = DropDown.Pages.reduce((acc, pageId) => {
-      console.log("TabsAR", TabsAR, pageId);
       const page = TabsAR.find((item) => item.id == pageId);
       if (page && page.PageURL) {
         acc.push(page);
