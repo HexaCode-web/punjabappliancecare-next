@@ -47,7 +47,6 @@ export default function Home() {
         axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`),
       ]);
       const formattedPageData = mainPageData.data[0];
-
       const formattedWebsiteData = websiteData.data[0];
 
       setWebData(formattedWebsiteData);
