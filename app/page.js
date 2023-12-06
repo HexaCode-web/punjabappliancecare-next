@@ -41,34 +41,23 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const [mainPageData, sidePagesData, websiteData] = await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`)
-          .then((response) => response.json())
-          .catch((error) => {
-            console.error("Error fetching MainPage data:", error);
-          }),
-        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`)
-          .then((response) => response.json())
-          .catch((error) => {
-            console.error("Error fetching SidePages data:", error);
-          }),
-        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`)
-          .then((response) => response.json())
-          .catch((error) => {
-            console.error("Error fetching Website data:", error);
-          }),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`).then((res) =>
+          res.json()
+        ),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`).then(
+          (res) => res.json()
+        ),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`).then((res) =>
+          res.json()
+        ),
       ]);
-
-      const formattedPageData = mainPageData.data[0];
-      const formattedWebsiteData = websiteData.data[0];
+      const formattedPageData = mainPageData[0];
+      const formattedWebsiteData = websiteData[0];
 
       setWebData(formattedWebsiteData);
 
       setPageOrder(formattedPageData.PageOrder);
-      setFetchedData([
-        formattedPageData,
-        sidePagesData.data,
-        formattedWebsiteData,
-      ]);
+      setFetchedData([formattedPageData, sidePagesData, formattedWebsiteData]);
       setLoading(false);
     };
     fetchData();
