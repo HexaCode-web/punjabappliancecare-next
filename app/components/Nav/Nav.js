@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import "./Nav.css";
 import Image from "next/image";
-import GETDOC from "@/lib/getDoc";
 
 import RenderNav from "./RenderNav";
 
@@ -26,7 +25,9 @@ const Nav = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const websiteData = await GETDOC("customization", "Sidepages");
+      const websiteData = await fetch(
+        `${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`
+      ).then((res) => res.json());
       setFetchedData(websiteData);
     };
     fetchData();

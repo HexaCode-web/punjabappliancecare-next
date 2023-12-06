@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-sync-scripts */
-import GETDOC from "@/lib/getDoc";
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import dynamic from "next/dynamic";
@@ -10,24 +9,26 @@ const roboto = Roboto({
 });
 export async function generateMetadata() {
   const siteURL = "https://punjabappliancecare.ca/";
-  const fetchWebData = await GETDOC("customization", "Website");
+  const fetchWebData = await fetch(
+    `${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`
+  ).then((res) => res.json());
   return {
-    title: fetchWebData.WebsiteName,
-    description: fetchWebData.Description,
+    title: fetchWebData[0].WebsiteName,
+    description: fetchWebData[0].Description,
     alternates: {
       canonical: siteURL,
     },
     openGraph: {
-      title: fetchWebData.WebsiteName,
-      description: fetchWebData.Description,
+      title: fetchWebData[0].WebsiteName,
+      description: fetchWebData[0].Description,
       images: [
         {
-          url: fetchWebData.Thumbnail,
+          url: fetchWebData[0].Thumbnail,
           width: 800,
           height: 600,
         },
       ],
-      siteName: fetchWebData.WebsiteName,
+      siteName: fetchWebData[0].WebsiteName,
 
       locale: "en_US",
       type: "website",

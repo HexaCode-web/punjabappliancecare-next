@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import "./Footer.css";
 import Image from "next/image";
-import GETDOC from "@/lib/getDoc";
 import Link from "next/link";
 
 const Footer = () => {
@@ -12,14 +11,21 @@ const Footer = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const serverData = await GETDOC("customization", "Main");
-      const websiteData = await GETDOC("customization", "Sidepages");
-      setTabs(websiteData);
-      setServerData(serverData.FooterData);
+      const [mainPageData, sidePagesData] = await Promise.all([
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`).then((res) =>
+          res.json()
+        ),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`).then(
+          (res) => res.json()
+        ),
+      ]);
+      const formattedPageData = mainPageData[0];
+      setTabs(sidePagesData);
+      setServerData(formattedPageData.FooterData);
     };
     fetchData();
   }, []);
-
+  console.log(tabs);
   const objectToArray = (obj) => {
     return Object.keys(obj).map((key) => ({
       key,
@@ -158,7 +164,8 @@ const Footer = () => {
       );
     }
   });
-
+  const TOUPage = tabs?.find((page) => page.id == 15);
+  const privacyPage = tabs?.find((page) => page.id == 16);
   return (
     <>
       {serverData && (
@@ -219,11 +226,11 @@ const Footer = () => {
           <div className="CopyRight">
             <p>© 2023 punjab's Appliance Care. All Rights Reserved</p>
             <div>
-              <Link href={tabs?.TOU.PageURL ? tabs.TOU.PageURL : ""}>
+              <Link href={TOUPage.PageURL ? TOUPage.PageURL : ""}>
                 Terms Of Use
               </Link>
               <span>&</span>
-              <Link href={tabs?.Privacy.PageURL ? tabs.Privacy.PageURL : ""}>
+              <Link href={privacyPage.PageURL ? privacyPage.PageURL : ""}>
                 Privacy Policy
               </Link>
             </div>

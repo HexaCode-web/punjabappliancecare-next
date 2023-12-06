@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import ContactPopUp from "../PopUps/ContactPopup/ContactPopup";
 import HamburgerButton from "../HamburgerButton/HamburgerButton";
 import sortBy from "sort-by";
-import GETCOLLECTION from "@/lib/getCollection";
 import Link from "next/link";
 
 const RenderNav = ({ Tabs }) => {
@@ -100,7 +99,11 @@ const RenderNav = ({ Tabs }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setDropDowns(await GETCOLLECTION("DropDown"));
+      const DropDowns = await fetch(
+        `${process.env.NEXT_PUBLIC_END_POINT_URL}/DropDowns`
+      ).then((res) => res.json());
+      console.log(DropDowns);
+      setDropDowns(DropDowns);
     };
     fetchData();
   }, []);
