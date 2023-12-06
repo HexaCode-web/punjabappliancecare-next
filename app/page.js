@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 import Loading from "./loading";
 import "animate.css";
 import Aos from "aos";
-import GETCOLLECTION from "@/lib/getCollection";
+import axios from "axios";
 
 export default function Home() {
   const MainPage = dynamic(() => import("./components/MainPage"), {
@@ -41,14 +41,28 @@ export default function Home() {
   }, []);
   useEffect(() => {
     const fetchData = async () => {
-      const Data = await GETCOLLECTION("customization");
-      setWebData(Data[2]);
-      setPageOrder(Data[0].PageOrder);
-      setFetchedData(Data);
+      const [mainPageData, sidePagesData, websiteData] = await Promise.all([
+        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`),
+        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`),
+        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`),
+      ]);
+      const formattedPageData = mainPageData.data[0];
+
+      const formattedWebsiteData = websiteData.data[0];
+
+      setWebData(formattedWebsiteData);
+
+      setPageOrder(formattedPageData.PageOrder);
+      setFetchedData([
+        formattedPageData,
+        sidePagesData.data,
+        formattedWebsiteData,
+      ]);
       setLoading(false);
     };
     fetchData();
   }, []);
+
   useEffect(() => {
     if (webData) {
       const root = document.documentElement;

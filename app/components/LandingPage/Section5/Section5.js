@@ -5,7 +5,7 @@ import SkillCard from "../../Cards/SkillCard/SkillCard";
 const Section5 = (props) => {
   const renderData = props.ServerData.Slider.map((skill) => {
     return (
-      <props.SwiperSlide key={skill.id}>
+      <props.SwiperSlide key={skill.URL}>
         <SkillCard Data={skill} />
       </props.SwiperSlide>
     );

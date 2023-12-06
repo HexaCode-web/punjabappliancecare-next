@@ -93,7 +93,7 @@ const MainPage = ({ width, FetchedData, Tabs, PageOrder, Email }) => {
             break;
         }
         const Component = componentMap[key];
-        if (Data.Show) {
+        if (Data?.Show) {
           return (
             <Component
               screenWidth={width}
