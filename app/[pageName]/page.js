@@ -8,7 +8,6 @@ import dynamic from "next/dynamic";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "animate.css";
-import axios from "axios";
 const Page = ({ params }) => {
   const PageURL = params.pageName;
   const Template1 = dynamic(() => import("./Templates/Template1"), {
@@ -69,13 +68,19 @@ const Page = ({ params }) => {
   useEffect(() => {
     const fetchPages = async () => {
       const [mainPageData, sidePagesData, websiteData] = await Promise.all([
-        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`),
-        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`),
-        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`).then((res) =>
+          res.json()
+        ),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`).then(
+          (res) => res.json()
+        ),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`).then((res) =>
+          res.json()
+        ),
       ]);
-      const formattedPageData = mainPageData.data[0];
+      const formattedPageData = mainPageData[0];
 
-      const formattedWebsiteData = websiteData.data[0];
+      const formattedWebsiteData = websiteData[0];
       setEmail(formattedPageData.FooterData.Email);
       setPhone(formattedPageData.FooterData.Phone);
       setPageOrder(formattedPageData.PageOrder);

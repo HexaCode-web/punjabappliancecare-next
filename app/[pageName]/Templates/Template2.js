@@ -13,7 +13,6 @@ import Image from "next/image";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Templates.css";
-import axios from "axios";
 import Loading from "@/app/loading";
 import dynamic from "next/dynamic";
 const Template2 = ({ Data }) => {
@@ -57,12 +56,17 @@ const Template2 = ({ Data }) => {
   useEffect(() => {
     const fetchSliderData = async () => {
       setSection7Data(Data.TemplateProperties.section7);
+
       const [mainPageData, sidePagesData] = await Promise.all([
-        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`),
-        axios.get(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`).then((res) =>
+          res.json()
+        ),
+        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`).then(
+          (res) => res.json()
+        ),
       ]);
-      const MainData = mainPageData.data[0];
-      const Tabs = sidePagesData.data;
+      const MainData = mainPageData[0];
+      const Tabs = sidePagesData;
       setTabs(Tabs);
       setSliderData(MainData.Section5);
       setTestimonials(MainData.Section4);

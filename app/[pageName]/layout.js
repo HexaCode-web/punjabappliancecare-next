@@ -1,12 +1,12 @@
-import axios from "axios";
-
 export const generateMetadata = async ({ params }) => {
   let arPages = [];
   const fetchPages = async () => {
-    const pages = await axios.get(
+    const pagesResponse = await fetch(
       `${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`
     );
-    arPages = pages.data;
+    const pages = await pagesResponse.json();
+
+    arPages = pages;
   };
   await fetchPages();
   const foundPage = arPages.find((page) => {
@@ -44,10 +44,12 @@ export default function SidePagesLayout({ children }) {
 export async function generateStaticParams() {
   let arPages = [];
   const fetchPages = async () => {
-    const pages = await axios.get(
+    const pagesResponse = await fetch(
       `${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`
     );
-    arPages = pages.data;
+    const pages = await pagesResponse.json();
+
+    arPages = pages;
   };
   await fetchPages();
   const filteredPages = arPages.filter((page) => page.PageURL !== "");
