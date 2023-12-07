@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Header.css";
 import dynamic from "next/dynamic";
 import Loading from "@/app/loading";
+import Image from "next/image";
 const DynamicContactPopUp = dynamic(
   () => import("../PopUps/ContactPopup/ContactPopup"),
   {
@@ -47,13 +48,21 @@ const Header2 = (props) => {
           )}
         </div>
       </div>
-      <div
-        className="overlay"
+      <Image
+        sizes="(max-width: 768px) 50vw, 33vw, (max-width: 1200px) 100vw "
+        priority={true}
+        alt="background"
+        width="1366"
+        height="500"
         style={{
-          backgroundImage: `url(${props.bg})`,
-          transform: "ScaleX(1)",
+          position: "absolute",
+          left: "0",
+          top: "0",
+          height: "calc(100vh - 60px)",
         }}
-      ></div>
+        src={props.bg}
+      />
+      <div className="overlay"></div>
       <ContactPopUp
         show={showModal}
         handleClose={handleCloseModal}
