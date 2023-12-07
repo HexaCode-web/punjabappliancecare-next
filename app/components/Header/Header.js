@@ -21,6 +21,7 @@ const Header = (props) => {
   const [showModal, setShowModal] = React.useState(false);
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+
   return (
     <div className="Header">
       <div className="Content">
@@ -71,6 +72,7 @@ const Header = (props) => {
       </div>
 
       <Image
+        priority={true}
         alt="background"
         width="1366"
         height="650"
