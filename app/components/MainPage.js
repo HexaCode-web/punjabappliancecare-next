@@ -9,39 +9,39 @@ import "swiper/css/pagination";
 const MainPage = ({ width, FetchedData, Tabs, PageOrder, Email }) => {
   const Section1 = dynamic(() => import("./LandingPage/Section1/Section1"), {
     loading: () => <Loading />,
-    ssr: false,
+    ssr: true,
   });
   const Section2 = dynamic(() => import("./LandingPage/Section2/Section2"), {
     loading: () => <Loading />,
-    ssr: false,
+    ssr: true,
   });
   const Section3 = dynamic(() => import("./LandingPage/Section3/Section3"), {
     loading: () => <Loading />,
-    ssr: false,
+    ssr: true,
   });
   const Section4 = dynamic(() => import("./LandingPage/Section4/Section4"), {
     loading: () => <Loading />,
-    ssr: false,
+    ssr: true,
   });
   const Section5 = dynamic(() => import("./LandingPage/Section5/Section5"), {
     loading: () => <Loading />,
-    ssr: false,
+    ssr: true,
   });
   const Section6 = dynamic(() => import("./LandingPage/Section6/Section6"), {
     loading: () => <Loading />,
-    ssr: false,
+    ssr: true,
   });
   const Section7 = dynamic(() => import("./LandingPage/Section7/Section7"), {
     loading: () => <Loading />,
-    ssr: false,
+    ssr: true,
   });
   const Section8 = dynamic(() => import("./LandingPage/Section8/Section8"), {
     loading: () => <Loading />,
-    ssr: false,
+    ssr: true,
   });
   const Section9 = dynamic(() => import("./LandingPage/Section9/Section9"), {
     loading: () => <Loading />,
-    ssr: false,
+    ssr: true,
   });
 
   const sortedEntries = Object.entries(PageOrder).sort((a, b) => a[1] - b[1]);
