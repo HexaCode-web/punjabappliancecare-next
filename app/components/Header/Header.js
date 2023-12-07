@@ -72,6 +72,11 @@ const Header = (props) => {
       </div>
 
       <Image
+        srcSet={`${severData.BGURL} 1200w, 
+         ${severData.BGURL}?w=200 200w,
+         ${severData.BGURL}?w=400 400w, 
+         ${severData.BGURL}?w=800 800w, 
+         ${severData.BGURL}?w=1024 1024w`}
         priority={true}
         alt="background"
         width="1366"
