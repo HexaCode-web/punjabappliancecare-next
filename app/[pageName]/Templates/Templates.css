@@ -200,8 +200,14 @@ Section4
   flex-direction: row;
 }
 .ViewTemplate .Section4 .Left {
-  width: 59%;
+  padding: 20px;
+  width: 100%;
 }
+.ViewTemplate .Section4 p {
+  margin: 0;
+  padding: 0;
+}
+
 .ViewTemplate .Section4 .Right {
   width: 39%;
 }

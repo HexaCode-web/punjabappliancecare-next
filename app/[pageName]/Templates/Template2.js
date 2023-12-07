@@ -278,7 +278,7 @@ const Template2 = ({ Data }) => {
         )
       )}
 
-      <div className="FAQ">
+      <div className="Section8 FAQ">
         {Data.FAQ.length > 0 && (
           <h2 data-aos="fade-down">Frequently Asked Questions</h2>
         )}

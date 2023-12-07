@@ -4,7 +4,13 @@
   background-color: #0057bc;
   color: white !important;
 }
+.Section8 h2 {
+  text-align: center;
+  width: 100%;
+  color: white;
+}
 .Section8 p {
+  color: white;
   margin-bottom: 0;
   padding-left: 20px;
 }
