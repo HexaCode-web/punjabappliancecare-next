@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Header.css";
 import dynamic from "next/dynamic";
+import Loading from "@/app/loading";
 const DynamicContactPopUp = dynamic(
   () => import("../PopUps/ContactPopup/ContactPopup"),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Loading />,
   }
 );
 

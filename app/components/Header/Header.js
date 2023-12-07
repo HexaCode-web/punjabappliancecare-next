@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 const DynamicContactPopUp = dynamic(
   () => import("../PopUps/ContactPopup/ContactPopup"),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Loading />,
   }
 );
 const DynamicContactForm = dynamic(() => import("../PopUps/ContactForm"), {

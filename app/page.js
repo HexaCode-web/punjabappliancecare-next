@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-import "aos/dist/aos.css";
+// import "aos/dist/aos.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import dynamic from "next/dynamic";
 import Loading from "./loading";
-import "animate.css";
-import Aos from "aos";
+// import "animate.css";
+// import Aos from "aos";
 
 export default function Home() {
   const MainPage = dynamic(() => import("./components/MainPage"), {
@@ -74,9 +74,9 @@ export default function Home() {
       root.style.setProperty("--LinkLines", webData.Colors.LinkLines);
     }
   }, [webData]);
-  useEffect(() => {
-    Aos.init({ duration: 500 });
-  }, []);
+  // useEffect(() => {
+  //   Aos.init({ duration: 500 });
+  // }, []);
 
   return (
     <main>

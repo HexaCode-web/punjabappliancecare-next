@@ -8,9 +8,10 @@ import CreateToast from "@/lib/createToast";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import Loading from "@/app/loading";
 function ContactPopUp(props) {
   const Modal = dynamic(() => import("react-bootstrap/Modal"), {
-    loading: () => <p>Loading...</p>,
+    loading: () => <Loading />,
   });
 
   const [email, setEmail] = useState("");
