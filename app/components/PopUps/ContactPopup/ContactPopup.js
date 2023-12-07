@@ -8,8 +8,7 @@ import SENDMAIL from "@/lib/sendEmail";
 import CreateToast from "@/lib/createToast";
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import Loading from "@/app/loading";
+
 import { Modal } from "react-bootstrap";
 function ContactPopUp(props) {
   const [email, setEmail] = useState("");

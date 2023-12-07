@@ -3,20 +3,20 @@ import "./Header.css";
 import Loading from "@/app/loading";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-const DynamicContactPopUp = dynamic(
-  () => import("../PopUps/ContactPopup/ContactPopup"),
-  {
-    loading: () => <Loading />,
-  }
-);
-const DynamicContactForm = dynamic(() => import("../PopUps/ContactForm"), {
-  loading: () => <Loading />,
-  ssr: false,
-});
+// const DynamicContactPopUp = dynamic(
+//   () => import("../PopUps/ContactPopup/ContactPopup"),
+//   {
+//     loading: () => <Loading />,
+//   }
+// );
+// const DynamicContactForm = dynamic(() => import("../PopUps/ContactForm"), {
+//   loading: () => <Loading />,
+//   ssr: false,
+// });
 
 const Header = (props) => {
-  const ContactPopUp = DynamicContactPopUp;
-  const ContactForm = DynamicContactForm;
+  // const ContactPopUp = DynamicContactPopUp;
+  // const ContactForm = DynamicContactForm;
   const severData = props.ServerData;
   const [showModal, setShowModal] = React.useState(false);
   const handleShowModal = () => setShowModal(true);
@@ -64,11 +64,11 @@ const Header = (props) => {
             </a>
           )}
         </div>
-        {props.screenWidth > 1150 && (
+        {/* {props.screenWidth > 1150 && (
           <div className="Left animate__animated  animate__fast animate__fadeInRight">
             <ContactForm textColor="White" />
           </div>
-        )}
+        )} */}
       </div>
 
       <Image
@@ -93,12 +93,12 @@ const Header = (props) => {
           <source src={severData.VideoBG} />
         </video>
       )}
-      <ContactPopUp
+      {/* <ContactPopUp
         show={showModal}
         handleClose={handleCloseModal}
         type="Project"
         className=""
-      />
+      /> */}
     </div>
   );
 };
