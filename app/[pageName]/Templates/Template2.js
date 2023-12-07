@@ -239,17 +239,43 @@ const Template2 = ({ Data }) => {
           specialStyles={true}
           content={Data.section5.content}
           title={Data.section5.title}
+          Autoplay={Autoplay}
+          Pagination={Pagination}
+          SwiperSlide={SwiperSlide}
+          Swiper={Swiper}
         />
       )}
       {section6Data && (
         <Section6 ServerData={section6Data} specialStyles={true} Tabs={tabs} />
       )}
-      {Testimonials && <Section4 ServerData={Testimonials} />}
+      {Testimonials && (
+        <Section4
+          ServerData={Testimonials}
+          Autoplay={Autoplay}
+          Pagination={Pagination}
+          SwiperSlide={SwiperSlide}
+          Swiper={Swiper}
+        />
+      )}
 
       {Data.section7.Default && brands ? (
-        <Section2 ServerData={brands} />
+        <Section2
+          ServerData={brands}
+          Autoplay={Autoplay}
+          Pagination={Pagination}
+          SwiperSlide={SwiperSlide}
+          Swiper={Swiper}
+        />
       ) : (
-        section7Data && <Section2 ServerData={section7Data} />
+        section7Data && (
+          <Section2
+            ServerData={section7Data}
+            Autoplay={Autoplay}
+            Pagination={Pagination}
+            SwiperSlide={SwiperSlide}
+            Swiper={Swiper}
+          />
+        )
       )}
 
       <div className="FAQ">
