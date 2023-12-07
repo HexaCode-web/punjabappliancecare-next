@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import Loading from "@/app/loading";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 const DynamicContactPopUp = dynamic(
   () => import("../PopUps/ContactPopup/ContactPopup"),
   {
@@ -69,26 +70,26 @@ const Header = (props) => {
         )}
       </div>
 
-      <div
+      <Image
+        alt="background"
+        width="1366"
+        height="650"
         className={`overlay ${
           props.screenWidth > 500 && severData.ShowVideo ? "Video" : "Photo"
         }`}
-        style={{
-          backgroundImage: `url(${
-            props.screenWidth < 500
-              ? severData.BGURL
-              : severData.ShowVideo
-              ? ""
-              : severData.BGURL
-          })`,
-        }}
-      >
-        {severData.ShowVideo && props.screenWidth > 500 && (
-          <video autoPlay muted loop>
-            <source src={severData.VideoBG} />
-          </video>
-        )}
-      </div>
+        src={
+          props.screenWidth < 500
+            ? severData.BGURL
+            : severData.ShowVideo
+            ? ""
+            : severData.BGURL
+        }
+      />
+      {severData.ShowVideo && props.screenWidth > 500 && (
+        <video autoPlay muted loop className={`overlay Video`}>
+          <source src={severData.VideoBG} />
+        </video>
+      )}
       <ContactPopUp
         show={showModal}
         handleClose={handleCloseModal}

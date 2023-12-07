@@ -167,19 +167,12 @@
   height: 100%;
 }
 .overlay.Video {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
 }
 .overlay.Video::before {
   display: none;
-}
-.overlay.Video {
-  position: absolute;
-  width: 100%;
-  height: calc(100vh - 60px);
-
-  overflow: hidden !important;
 }
 
 .overlay.Video video {

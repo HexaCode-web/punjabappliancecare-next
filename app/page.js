@@ -41,18 +41,11 @@ export default function Home() {
   }, []);
   useEffect(() => {
     const fetchData = async () => {
-      Promise.all([GETCOLLECTION("customization")])
-        .then(([customizationData]) => {
-          setWebData(customizationData[2]);
-          setPageOrder(customizationData[0].PageOrder);
-
-          setFetchedData(customizationData);
-          setLoading(false);
-        })
-        .catch((error) => {
-          // Handle error
-          console.log("Error fetching data", error);
-        });
+      const webData = await GETCOLLECTION("customization");
+      setLoading(false);
+      setWebData(webData[2]);
+      setPageOrder(webData[0].PageOrder);
+      setFetchedData(webData);
     };
     fetchData();
   }, []);

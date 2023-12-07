@@ -43,8 +43,8 @@ const HeaderSettings = ({
       const file = e.target.files[0];
       const url = await UPLOADVIDEO(
         UploadPath
-          ? `${UploadPath}/Header/VideoBG`
-          : `/customization/MainPage/Header/VideoBG`,
+          ? `${UploadPath}/Header/VideoBG.mp4`
+          : `/customization/MainPage/Header/VideoBG.mp4`,
         file,
         handleProgress
       );
