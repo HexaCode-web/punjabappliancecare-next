@@ -11,10 +11,10 @@
   margin-left: 0;
 }
 .Section9Card img {
-  min-height: 250px;
-  border-radius: 10px;
-  width: 100%;
-  object-fit: cover;
+  min-height: 250px !important;
+  border-radius: 10px !important;
+  width: 100% !important;
+  object-fit: cover !important;
 }
 
 .Section9Card h3 {
