@@ -93,6 +93,7 @@ const Header = (props) => {
         show={showModal}
         handleClose={handleCloseModal}
         type="Project"
+        className=""
       />
     </div>
   );

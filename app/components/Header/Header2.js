@@ -58,6 +58,7 @@ const Header2 = (props) => {
         show={showModal}
         handleClose={handleCloseModal}
         type="Contact"
+        className=""
       />
     </div>
   );

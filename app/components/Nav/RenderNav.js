@@ -194,6 +194,7 @@ const RenderNav = ({ Tabs }) => {
         show={showModal}
         handleClose={handleCloseModal}
         type="Contact"
+        className=""
       />
     </>
   );

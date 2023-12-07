@@ -10,11 +10,8 @@ import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Loading from "@/app/loading";
+import { Modal } from "react-bootstrap";
 function ContactPopUp(props) {
-  const Modal = dynamic(() => import("react-bootstrap/Modal"), {
-    loading: () => <Loading />,
-  });
-
   const [email, setEmail] = useState("");
   const [formData, setFormData] = useState({
     Lname: "",
@@ -105,11 +102,7 @@ function ContactPopUp(props) {
     });
   };
   return (
-    <Modal
-      className={props.className}
-      show={props.show}
-      onHide={props.handleClose}
-    >
+    <Modal show={props.show} onHide={props.handleClose}>
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <>
