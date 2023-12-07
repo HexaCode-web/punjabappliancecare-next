@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Template4 = ({ Data }) => {
-  const RenderSlider = Data.TemplateProperties.imgList.map((img) => {
+  const RenderSlider = Data.imgList.map((img) => {
     return (
       <SwiperSlide key={img.id}>
         <Image src={img.url} alt="slide Image" width="400" height="400" />

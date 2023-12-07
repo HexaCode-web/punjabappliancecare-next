@@ -35,28 +35,28 @@ const Template3 = ({ Data, width, Tabs, PageOrder, Email }) => {
           let data;
           switch (key) {
             case "Section1":
-              data = Data.TemplateProperties.Section1;
+              data = Data.Section1;
               break;
             case "Section2":
-              data = Data.TemplateProperties.Section2;
+              data = Data.Section2;
               break;
             case "Section3":
-              data = Data.TemplateProperties.Section3;
+              data = Data.Section3;
               break;
             case "Section5":
-              data = Data.TemplateProperties.Section5;
+              data = Data.Section5;
               break;
             case "Section6":
-              data = Data.TemplateProperties.Section6;
+              data = Data.Section6;
               break;
             case "Section7":
-              data = Data.TemplateProperties.Section7;
+              data = Data.Section7;
               break;
             case "Section8":
-              data = Data.TemplateProperties.Section8;
+              data = Data.Section8;
               break;
             case "Section9":
-              data = Data.TemplateProperties.Section9;
+              data = Data.Section9;
               break;
             default:
               break;
@@ -82,7 +82,7 @@ const Template3 = ({ Data, width, Tabs, PageOrder, Email }) => {
         })}
       </div>
 
-      <Map address={Data.TemplateProperties.DesiredLocation} />
+      <Map address={Data.DesiredLocation} />
     </>
   );
 };
