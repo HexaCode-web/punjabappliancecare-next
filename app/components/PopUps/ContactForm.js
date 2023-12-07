@@ -2,7 +2,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-// import SENDMAIL from "@/lib/sendEmail";
+import GETCOLLECTION from "@/lib/getCollection";
+import SENDMAIL from "@/lib/sendEmail";
 import EmailTemplate from "./EmailTemplate";
 import "./ContactPopup/ContactPopup.css";
 import CreateToast from "@/lib/createToast";
@@ -20,10 +21,8 @@ const ContactForm = ({ Target, textColor }) => {
 
   useEffect(() => {
     const FetchEmail = async () => {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`
-      ).then((res) => res.json());
-      setEmail(res[0].Email);
+      const res = await GETCOLLECTION("customization");
+      setEmail(res[2].Email);
     };
     FetchEmail();
   }, []);
@@ -38,21 +37,21 @@ const ContactForm = ({ Target, textColor }) => {
       EmailHeader = `${formData.Fname} has submitted a form`;
       Subject = "New Contact Form Submission";
     }
-    // SENDMAIL(
-    //   EmailTemplate,
-    //   email,
-    //   "punjabappliancecare",
-    //   EmailHeader,
-    //   formData,
-    //   Subject
-    // )
-    //   .then((response) => {
-    //     CreateToast("Email has been sent");
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //     CreateToast("error sending the email");
-    //   });
+    SENDMAIL(
+      EmailTemplate,
+      email,
+      "punjabappliancecare",
+      EmailHeader,
+      formData,
+      Subject
+    )
+      .then((response) => {
+        CreateToast("Email has been sent");
+      })
+      .catch((error) => {
+        console.error(error);
+        CreateToast("error sending the email");
+      });
   };
   const handleChange = (e) => {
     const { name, value } = e.target;

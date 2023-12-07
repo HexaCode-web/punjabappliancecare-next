@@ -3,7 +3,8 @@ import "./ContactPopup.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import EmailTemplate from "../EmailTemplate";
-// import SENDMAIL from "@/lib/sendEmail";
+import GETCOLLECTION from "@/lib/getCollection";
+import SENDMAIL from "@/lib/sendEmail";
 import CreateToast from "@/lib/createToast";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,14 +27,12 @@ function ContactPopUp(props) {
   const [Data, setData] = useState({ Phone: "", Email: "", Description: "" });
   useEffect(() => {
     const FetchEmail = async () => {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`
-      ).then((res) => res.json());
-      setEmail(res[0].Email);
+      const res = await GETCOLLECTION("customization");
+      setEmail(res[2].Email);
       setData({
-        Email: res[0].Email,
-        Phone: res[0].Phone,
-        Description: res[0].ModalDescription,
+        Email: res[0].FooterData.Email,
+        Phone: res[0].FooterData.Phone,
+        Description: res[2].ModalDescription,
       });
     };
     FetchEmail();
@@ -82,21 +81,21 @@ function ContactPopUp(props) {
   }, []);
   const SubmitForm = (e) => {
     e.preventDefault();
-    // SENDMAIL(
-    //   EmailTemplate,
-    //   email,
-    //   "punjabappliancecare",
-    //   `${formData.Fname} has submitted a form`,
-    //   formData,
-    //   "New Contact Form Submission"
-    // )
-    //   .then((response) => {
-    //     CreateToast("Email has been sent");
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //     CreateToast("error sending the email");
-    //   });
+    SENDMAIL(
+      EmailTemplate,
+      email,
+      "punjabappliancecare",
+      `${formData.Fname} has submitted a form`,
+      formData,
+      "New Contact Form Submission"
+    )
+      .then((response) => {
+        CreateToast("Email has been sent");
+      })
+      .catch((error) => {
+        console.error(error);
+        CreateToast("error sending the email");
+      });
   };
   const handleChange = (e) => {
     const { name, value } = e.target;

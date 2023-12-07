@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import Loading from "./loading";
 import "animate.css";
 import Aos from "aos";
+import GETCOLLECTION from "@/lib/getCollection";
 
 export default function Home() {
   const MainPage = dynamic(() => import("./components/MainPage"), {
@@ -40,25 +41,18 @@ export default function Home() {
   }, []);
   useEffect(() => {
     const fetchData = async () => {
-      const [mainPageData, sidePagesData, websiteData] = await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/MainPage`).then((res) =>
-          res.json()
-        ),
-        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/SidePages`).then(
-          (res) => res.json()
-        ),
-        fetch(`${process.env.NEXT_PUBLIC_END_POINT_URL}/WebSite`).then((res) =>
-          res.json()
-        ),
-      ]);
-      const formattedPageData = mainPageData[0];
-      const formattedWebsiteData = websiteData[0];
+      Promise.all([GETCOLLECTION("customization")])
+        .then(([customizationData]) => {
+          setWebData(customizationData[2]);
+          setPageOrder(customizationData[0].PageOrder);
 
-      setWebData(formattedWebsiteData);
-
-      setPageOrder(formattedPageData.PageOrder);
-      setFetchedData([formattedPageData, sidePagesData, formattedWebsiteData]);
-      setLoading(false);
+          setFetchedData(customizationData);
+          setLoading(false);
+        })
+        .catch((error) => {
+          // Handle error
+          console.log("Error fetching data", error);
+        });
     };
     fetchData();
   }, []);
@@ -74,9 +68,9 @@ export default function Home() {
       root.style.setProperty("--LinkLines", webData.Colors.LinkLines);
     }
   }, [webData]);
-  // useEffect(() => {
-  //   Aos.init({ duration: 500 });
-  // }, []);
+  useEffect(() => {
+    Aos.init({ duration: 500 });
+  }, []);
 
   return (
     <main>
