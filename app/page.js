@@ -13,12 +13,12 @@ import GETCOLLECTION from "@/lib/getCollection";
 export default function Home() {
   const MainPage = dynamic(() => import("./components/MainPage"), {
     loading: () => <Loading loading={loading} />,
-    ssr: false,
+    ssr: true,
   });
-  const Header = dynamic(() => import("./components/Header/Header"), {
-    loading: () => <Loading loading={loading} />,
-    ssr: false,
-  });
+  // const Header = dynamic(() => import("./components/Header/Header"), {
+  //   loading: () => <Loading loading={loading} />,
+  //   ssr: false,
+  // });
   const [webData, setWebData] = useState(null);
   const [width, setWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0
@@ -92,12 +92,12 @@ export default function Home() {
         ""
       ) : (
         <>
-          <Header
+          {/* <Header
             Email={FetchedData[0].FooterData.Email}
             Phone={FetchedData[0].FooterData.Phone}
             screenWidth={width}
             ServerData={FetchedData[0].Header}
-          />
+          /> */}
           <MainPage
             width={width}
             FetchedData={FetchedData}
