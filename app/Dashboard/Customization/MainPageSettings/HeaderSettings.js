@@ -105,8 +105,8 @@ const HeaderSettings = ({
     CreateToast("deleting video", "info");
     await DELETEPHOTO(
       UploadPath
-        ? `${UploadPath}/Header/VideoBG`
-        : `/customization/MainPage/Header/VideoBG`
+        ? `${UploadPath}/Header/VideoBG.mp4`
+        : `/customization/MainPage/Header/VideoBG.mp4`
     );
     await UpdateData("Header", { ...data, VideoBG: "" });
     if (SpecialStyles) {
